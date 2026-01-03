@@ -6,6 +6,5 @@ data class Vozilo(
     val model: String,
     val registracija: String,
     val letnik: Int,
-    val vin: String,
     val lastnikID: String?
 )

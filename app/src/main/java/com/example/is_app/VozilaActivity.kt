@@ -37,7 +37,6 @@ class VozilaActivity : AppCompatActivity() {
         val etModel = findViewById<EditText>(R.id.etModel)
         val etRegistracija = findViewById<EditText>(R.id.etRegistracija)
         val etLetnik = findViewById<EditText>(R.id.etLetnik)
-        val etVIN = findViewById<EditText>(R.id.etVIN)
         val btnNazaj = findViewById<Button>(R.id.btnNazaj)
 
         adapter = VozilaAdapter(vozilaList)
@@ -53,14 +52,12 @@ class VozilaActivity : AppCompatActivity() {
             val model = etModel.text.toString().trim()
             val registracija = etRegistracija.text.toString().trim()
             val letnik = etLetnik.text.toString().trim()
-            val vin = etVIN.text.toString().trim()
 
             if (znamka.isEmpty() || model.isEmpty() || registracija.isEmpty()) {
                 Toast.makeText(this, "Izpolnite vsaj znamko, model in registracijo", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            createVozilo(znamka, model, registracija, letnik.toIntOrNull() ?: 0, vin)
         }
 
         btnNazaj.setOnClickListener {
@@ -85,7 +82,6 @@ class VozilaActivity : AppCompatActivity() {
                         model = voziloJson.getString("model"),
                         registracija = voziloJson.getString("registracija"),
                         letnik = voziloJson.optInt("letnik", 0),
-                        vin = voziloJson.optString("vin", ""),
                         lastnikID = voziloJson.optString("lastnikId", null)
                     )
                     vozilaList.add(vozilo)
@@ -129,7 +125,6 @@ class VozilaActivity : AppCompatActivity() {
                 findViewById<EditText>(R.id.etModel).text.clear()
                 findViewById<EditText>(R.id.etRegistracija).text.clear()
                 findViewById<EditText>(R.id.etLetnik).text.clear()
-                findViewById<EditText>(R.id.etVIN).text.clear()
                 loadVozila()
             },
             { error ->

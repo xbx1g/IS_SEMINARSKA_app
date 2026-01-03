@@ -29,7 +29,6 @@ class VozilaAdapter(private val vozilaList: List<Vozilo>) :
         holder.tvModel.text = "Model: ${currentItem.model}"
         holder.tvRegistracija.text = "Registracija: ${currentItem.registracija}"
         holder.tvLetnik.text = "Letnik: ${currentItem.letnik}"
-        holder.tvVIN.text = "VIN: ${currentItem.vin}"
     }
 
     override fun getItemCount() = vozilaList.size

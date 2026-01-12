@@ -22,7 +22,7 @@ class VozilaActivity : AppCompatActivity() {
     private val vozilaList = mutableListOf<Vozilo>()
 
     private val BASE_URL = "https://autoservis-is-hhexe2azgca8ecen.italynorth-01.azurewebsites.net"
-    private val API_KEY = "SecretKey" // TODO: Spremeni na pravi ključ!
+    private val API_KEY = "SecretKey"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     // API konfiguracija
     private val BASE_URL = "https://autoservis-is-hhexe2azgca8ecen.italynorth-01.azurewebsites.net"
-    private val API_KEY = "SecretKey" // Spremeni v tvoj API ključ
+    private val API_KEY = "SecretKey"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,8 +63,6 @@ class MainActivity : AppCompatActivity() {
 
             createMehanik(ime, priimek, email, telefon)
         }
-
-        // Naloži mehanike ob zagonu
         loadMehaniki()
     }
 
@@ -122,12 +120,10 @@ class MainActivity : AppCompatActivity() {
             Request.Method.POST, url,
             { response ->
                 Toast.makeText(this, "Mehanik uspešno dodan!", Toast.LENGTH_SHORT).show()
-                // Počisti polja
                 findViewById<EditText>(R.id.etIme).text.clear()
                 findViewById<EditText>(R.id.etPriimek).text.clear()
                 findViewById<EditText>(R.id.etEmail).text.clear()
                 findViewById<EditText>(R.id.etTelefon).text.clear()
-                // Ponovno naloži mehanike
                 loadMehaniki()
             },
             { error ->
